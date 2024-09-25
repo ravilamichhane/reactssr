@@ -77,6 +77,9 @@ func (hr *HotReload) startWatcher() {
 	// Walk through all files in the frontend directory and add them to the watcher
 	if err = filepath.Walk(hr.engine.Config.FrontendDir, func(path string, fi os.FileInfo, err error) error {
 		if fi.Mode().IsDir() {
+			if filepath.Ext(path) == "go" {
+				return nil
+			}
 			return watcher.Add(path)
 		}
 		return nil

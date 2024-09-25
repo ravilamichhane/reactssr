@@ -48,12 +48,12 @@ func (rt *renderTask) Start() (string, string, string, error) {
 	// Wait for both to finish
 	srResult := <-rt.serverRenderResult
 	if srResult.err != nil {
-		slog.Error("Failed to build for server")
+		slog.Error("Failed to build for server", slog.Any("error", srResult.err))
 		return "", "", "", srResult.err
 	}
 	crResult := <-rt.clientRenderResult
 	if crResult.err != nil {
-		slog.Error("Failed to build for client")
+		slog.Error("Failed to build for client", slog.Any("error", crResult.err))
 		return "", "", "", crResult.err
 	}
 
