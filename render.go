@@ -1,4 +1,4 @@
-package go_ssr
+package reactssr
 
 import (
 	"encoding/json"
