@@ -19,7 +19,6 @@ type HotReload struct {
 	connectedClients map[string][]*websocket.Conn
 }
 
-// newHotReload creates a new HotReload instance
 func newHotReload(engine *Engine) *HotReload {
 	return &HotReload{
 		engine:           engine,
